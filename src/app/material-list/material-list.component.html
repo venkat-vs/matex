@@ -1,74 +1,164 @@
-<div style="padding: 0px 15px 0px 15px;" class="container-fluid border-top">
+<div style="padding: 0px 15px 0px 15px;" class="container border-top">
     <div class="row">
         <nav class="col-3 bg-light sidebar border-right">
-            <div class="sidebar-sticky" style="height:calc(100vh - 58px);">
+            <div class="sidebar-sticky pt-3" style="height:calc(100vh - 58px);">
+                <accordion [isAnimated]="true">
 
-                <div class="card mb-2 mt-3">
+                    <!-- Owner Accordion Group-->
+                    <accordion-group #ownerAccordionGroup [isDisabled]="activeTab==='document'" [(isOpen)]="isOwnerAccordionGroupOpen">
+
+                        <!--Header-->
+                        <div accordion-heading class="m-2">
+                            <div class="font-weight-bold">OWNER<i style="line-height: 5px;" class="float-right fa" [class.fa-chevron-down]="!ownerAccordionGroup.isOpen" [class.fa-chevron-up]="ownerAccordionGroup.isOpen"></i>
+                            </div>
+                        </div>
+                        <!--Header-->
+
+                        <!--Body-->
+                        <ul class="list-group checkbox-panel-list">
+                            <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;">
+                                <label class="float-left m-0" (click)="selectAllOwnerMidas()">{{ isOwnerSelectAll ? 'Un-select All' : 'Select All'}}</label>
+                            </li>
+                            <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;" *ngFor="let midas of sourceData | filterUnique:'Owner'">
+                                <label class="float-left m-0">{{midas.Owner.name}} ({{ownerMidasCounts[midas.MIDAS_Id] || 0}})</label>
+                                <label class="checkbox float-right">
+                                    <input type="checkbox" class="owner-midas-checkbox" (change)="updateMidasResult($event.target.checked, midas.Owner.id)"checked=""><span></span>
+                                </label>
+                            </li>
+                        </ul>
+                        <!--Body-->
+
+                    </accordion-group>
+                    <!-- Owner Accordion Group-->
+
+
+                    <!-- TEST METHOD Accordion Group-->
+                    <accordion-group #testMethodAccordionGroup [isDisabled]="activeTab==='document'" [(isOpen)]="isTestMethodAccordionGroupOpen">
+
+                        <!--Header-->
+                        <div accordion-heading class="m-2">
+                            <div class="font-weight-bold">TEST METHOD<i style="line-height: 5px;" class="float-right fa" [class.fa-chevron-down]="!testMethodAccordionGroup.isOpen" [class.fa-chevron-up]="testMethodAccordionGroup.isOpen"></i>
+                            </div>
+                        </div>
+                        <!--Header-->
+
+                        <!--Body-->
+                        <ul class="list-group checkbox-panel-list">
+                            <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;">
+                                <label class="float-left m-0" (click)="selectAllTestMethod()">{{ isTestMethodSelectAll ? 'Un-select All' : 'Select All'}}</label>
+                            </li>
+                            <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;"
+                                *ngFor="let test of testMethods | filterTest: 'TestMethod': {preferredTests: preferredTests}">
+                                <label class="float-left m-0">{{test.TestMethod}} {{test.Test_Facility}} ({{getCountOfMidas(test.TestMethod)}})</label>
+                                <label class="checkbox float-right">
+                                    <input type="checkbox" class="test-method-checkbox" (click)="updateMidasByTestCheckedProp($event.target.checked, test.TestMethod)" checked=""><span></span>
+                                </label>
+                            </li>
+                        </ul>
+                        <!--Body-->
+
+                    </accordion-group>
+                    <!-- TEST METHOD Accordion Group-->
+
+
+                    <!-- COMPONENT Accordion Group-->
+                    <accordion-group #componentAccordionGroup [isDisabled]="activeTab==='document'" [(isOpen)]="isComponentAccordionGroupOpen">
+
+                        <!--Header-->
+                        <div accordion-heading class="m-2">
+                            <div class="font-weight-bold">COMPONENT<i style="line-height: 5px;" class="float-right fa" [class.fa-chevron-down]="!componentAccordionGroup.isOpen" [class.fa-chevron-up]="componentAccordionGroup.isOpen"></i>
+                            </div>
+                        </div>
+                        <!--Header-->
+
+                        <!--Body-->
+                        <ul class="list-group checkbox-panel-list">
+                            <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;" *ngFor="let component of testComponents  | filterTest: 'component': {preferredTests: preferredTests}">
+                                <div class="custom-slider">
+                                    <p class="m-0 font-weight-bold filter-list-item">{{component.test.TestMethod}}{{component.test.TestFacility}} {{component.component.component}}</p>
+                                    <ng5-slider [value]="-40" [highValue]="60" [options]="{floor: -100,ceil: 100}"></ng5-slider>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--Body-->
+
+                    </accordion-group>
+                    <!-- TEST METHOD Accordion Group-->
+
+                </accordion>
+
+                <!--<div class="card mb-2 mt-3">
                     <div class="card-header">OWNER</div>
                     <div class="card-body">
                         <ul class="filter-list">
                             <li class="filter-list-item" *ngFor="let midas of sourceData | filterUnique:'Owner'">
-                                <h6>{{midas.Owner.name}} ({{ownerMidasCounts[midas.MIDAS_Id] || 0}})
+                                <h6>{{midas.Owner.name}} ({{ownerMidasCounts[midas.MIDAS_Id] || 0}})
                                 </h6>
                                 <label class="checkbox">
-                  <input type="checkbox" (change)="updateMidasResult($event, midas.Owner.id)" checked="">
-                  <span></span>
-                </label>
+                                    <input type="checkbox" (change)="updateMidasResult($event, midas.Owner.id)"
+                                           checked="">
+                                    <span></span>
+                                </label>
                             </li>
                         </ul>
                     </div>
 
-                </div>
+                </div>-->
 
-                <div class="card mb-2">
+                <!--<div class="card mb-2">
                     <div class="card-header">TEST METHOD</div>
                     <div class="card-body">
                         <ul class="filter-list">
-                            <li class="filter-list-item" *ngFor="let test of testMethods | filterTest: 'TestMethod': {preferredTests: preferredTests}">
+                            <li class="filter-list-item"
+                                *ngFor="let test of testMethods | filterTest: 'TestMethod': {preferredTests: preferredTests}">
                                 <h6>{{test.TestMethod}} {{test.Test_Facility}} ({{getCountOfMidas(test.TestMethod)}})
                                 </h6>
                                 <label class="checkbox">
-                  <input type="checkbox" checked="" (click)="updateMidasByTestCheckedProp($event, test.TestMethod)">
-                  <span></span>
-                </label>
+                                    <input type="checkbox" checked=""
+                                           (click)="updateMidasByTestCheckedProp($event, test.TestMethod)">
+                                    <span></span>
+                                </label>
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
 
-                <div class="card mb-2">
+                <!--<div class="card mb-2">
                     <div class="card-header">COMPONENT</div>
                     <div class="card-body">
-                        <div class="custom-slider border-bottom bg-light pl-3 pr-3" *ngFor="let component of testComponents  | filterTest: 'component': {preferredTests: preferredTests}">
+                        <div class="custom-slider border-bottom bg-light pl-3 pr-3"
+                             *ngFor="let component of testComponents  | filterTest: 'component': {preferredTests: preferredTests}">
                             <p class="m-0 font-weight-bold filter-list-item">
-                                {{component.test.TestMethod}}{{component.test.TestFacility}} {{component.component.component}}
+                                {{component.test.TestMethod}}{{component.test.TestFacility}}
+                                 {{component.component.component}}
 
                             </p>
 
                             <ng5-slider [value]="-40" [highValue]="60" [options]="{floor: -100,ceil: 100}"></ng5-slider>
                         </div>
                     </div>
-                </div>
+                </div>-->
 
             </div>
         </nav>
 
 
-
         <main role="main" class="col-9 px-4">
-            
+
             <div class="grid-list-icons">
                 <span (click)="switchView('grid')" class="grid-view-icon"><img src="./assets/images/gridview.png"
-            class="grid-icon-img" [ngClass]="{'icon-active': activeView === 'grid'}" /></span>
+                                                                               class="grid-icon-img"
+                                                                               [ngClass]="{'icon-active': activeView === 'grid'}"/></span>
                 <span (click)="switchView('list')"><img src="./assets/images/listview.png"
-            [ngClass]="{'icon-active': activeView === 'list'}" /></span>
+                                                        [ngClass]="{'icon-active': activeView === 'list'}"/></span>
             </div>
             <ul class="nav nav-pills nav-fill">
                 <li class="nav-item">
                     <a class="nav-link" (click)="switchTab('material')" [class.active]="activeTab==='material'">Materials</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" (click)="switchTab('document')" [class.active]="activeTab=='document'">Documents</a>
+                    <a class="nav-link" (click)="switchTab('document')"
+                       [class.active]="activeTab=='document'">Documents</a>
                 </li>
             </ul>
 
@@ -76,7 +166,8 @@
                 <div class="position-relative" *ngIf="activeTab==='material'">
                     <h5 class="mt-3">Materials results ({{dashboardData.length}})</h5>
                     <p>Select three matetrials to compare</p>
-                    <button class="btn btn-primary compare-button" (click)="goToCompareResult()">Compare Meterials</button>
+                    <button class="btn btn-primary compare-button" (click)="goToCompareResult()">Compare Meterials
+                    </button>
 
                     <div class="row tab-content">
                         <div class="col-4 mb-3" *ngFor="let midas of dashboardData | elementChecked: 'owner'">
@@ -88,9 +179,9 @@
                                     </p>
                                 </div>
                                 <label class="checkbox" style="width: 100%;margin-left: 90%;margin-bottom: 10px;">
-                  <input type="checkbox" (change)="updateMaterialsToCompare($event, midas.MIDAS_Id)">
-                  <span></span>
-                </label>
+                                    <input type="checkbox" (change)="updateMaterialsToCompare($event, midas.MIDAS_Id)">
+                                    <span></span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -105,92 +196,104 @@
                         <div class="col-4 mb-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="File.pdf">
-                                    
-                                        <div class="pdf-container"><img src="./assets/images/pdficon.jpeg"  class="pdficon"  /> </div>
-                                </a>
-                                <p class="card-text">
-                                    Screening of Bulk Transition Metal
-                                </p>
-                                <span class="card-selected-indicator">
+                                    <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf"
+                                       download="File.pdf">
+
+                                        <div
+                                                 class="pdf-container"><img src="./assets/images/pdficon.jpeg"
+                                             class="pdficon"
+                                             />
+                                        </div>
+                                    </a>
+                                    <p class="card-text">
+                                        Screening of Bulk Transition Metal
+                                    </p>
+                                    <span class="card-selected-indicator">
                         <i class="fa fa-check"></i>
                       </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4 mb-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf"
+                                       download="File.pdf">
+
+                                        <div
+                                                 class="pdf-container"><img src="./assets/images/pdficon.jpeg"
+                                             class="pdficon"  />
+                                        </div>
+                                    </a>
+                                    <p class="card-text">
+                                        Screening of Bulk Transition Metal
+                                    </p>
+                                    <span class="card-selected-indicator">
+                          <i class="fa fa-check"></i>
+                        </span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <a target="_blank" href="http://www.africau.edu/images/default/sample.pdf" download="File.pdf">
-                                
-                                    <div class="pdf-container"><img src="./assets/images/pdficon.jpeg"  class="pdficon"  /> </div>
-                            </a>
-                            <p class="card-text">
-                                Screening of Bulk Transition Metal
-                            </p>
-                            <span class="card-selected-indicator">
-                          <i class="fa fa-check"></i>
-                        </span>
+                </div>
+            </div>
+            <div class="listView" *ngIf="activeView==='list'">
+                <div class="position-relative" *ngIf="activeTab==='material'">
+                    <h5 class="mt-3">Material results ({{dashboardData.length}})</h5>
+                    <p>Select a material to view details.</p>
+                    <button class="btn btn-primary compare-button" (click)="goToCompareResult()">Compare Meterials
+                    </button>
+
+                    <div class="row tab-content">
+                        <div class="col-12 mb-3" *ngFor="let midas of dashboardData | elementChecked: 'owner'"
+                              (click)="goToMidasDetail(midas.MIDAS_Id)">
+                            <div class="card border-0">
+                                <div class="card-body border-bottom">
+                                    <h5 class="card-title">{{midas.MIDAS_Id}}</h5>
+                                    <p class="card-text">
+                                        {{midas.Sample_Description}}
+                                    </p>
+                                    <label class="checkbox" style="width: 100%;margin-left: 90%;margin-bottom: 10px;">
+                                        <input type="checkbox"
+                                               (change)="updateMaterialsToCompare($event, midas.MIDAS_Id)">
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="position-relative" *ngIf="activeTab==='document'">
+                    <h5 class="mt-3">Documents results (02)</h5>
+                    <p>Select a document to view details.</p>
+
+
+                    <div class="row tab-content">
+                        <div class="col-12 mb-3">
+                            <div class="card border-0">
+                                <div class="card-body border-bottom">
+                                    <h5 class="card-title">Screening of Bulk Transition Metal</h5>
+                                    <p class="card-text">
+                                        Screening of Bulk Transition Metal
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 mb-3">
+                            <div class="card border-0">
+                                <div class="card-body border-bottom">
+                                    <h5 class="card-title">Screening of Bulk Transition Metal</h5>
+                                    <p class="card-text">
+                                        Screening of Bulk Transition Metal
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </main>
+
     </div>
-</div>
-<div class="listView" *ngIf="activeView==='list'">
-    <div class="position-relative" *ngIf="activeTab==='material'">
-        <h5 class="mt-3">Material results ({{dashboardData.length}})</h5>
-        <p>Select a material to view details.</p>
-        <button class="btn btn-primary compare-button" (click)="goToCompareResult()">Compare Meterials</button>
-
-        <div class="row tab-content">
-            <div class="col-12 mb-3" *ngFor="let midas of dashboardData | elementChecked: 'owner'"  (click)="goToMidasDetail(midas.MIDAS_Id)">
-                <div class="card border-0">
-                    <div class="card-body border-bottom">
-                        <h5 class="card-title">{{midas.MIDAS_Id}}</h5>
-                        <p class="card-text">
-                            {{midas.Sample_Description}}
-                        </p>
-                                <label class="checkbox" style="width: 100%;margin-left: 90%;margin-bottom: 10px;">
-                                    <input type="checkbox" (change)="updateMaterialsToCompare($event, midas.MIDAS_Id)">
-                                    <span></span>
-                                </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="position-relative" *ngIf="activeTab==='document'">
-        <h5 class="mt-3">Documents results (02)</h5>
-        <p>Select a document to view details.</p>
-
-
-        <div class="row tab-content">
-            <div class="col-12 mb-3">
-                <div class="card border-0">
-                    <div class="card-body border-bottom">
-                        <h5 class="card-title">Screening of Bulk Transition Metal</h5>
-                        <p class="card-text">
-                            Screening of Bulk Transition Metal
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 mb-3">
-                <div class="card border-0">
-                    <div class="card-body border-bottom">
-                        <h5 class="card-title">Screening of Bulk Transition Metal</h5>
-                        <p class="card-text">
-                            Screening of Bulk Transition Metal
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</main>
-
-</div>
 </div>

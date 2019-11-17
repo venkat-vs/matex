@@ -67,68 +67,69 @@ import {UniquePipe} from './shared/filters/remove-duplicates-pipe';
 import {UniqueRecordPipe} from './shared/pipes/unique-records.pipe';
 import {FilterTestsPipe} from './shared/pipes/filter-tests.pipe';
 import {ElementCheckedPipe} from './shared/pipes/element-checked.pipe';
+import {AccordionModule} from "ngx-bootstrap";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    MaterialListComponent,
-    MaterialComponent,
-    HeaderComponent,
-    FooterComponent,
-    GenealogyComponent,
-    GeneralinfoComponent,
-    GalleryComponent,
-    CharacterisationDataComponent,
-    TestingComponent,
-    ReportsComponent,
-    MaterialdetailsComponent,
-    CheckboxGroupComponent,
-    PagenotfoundComponent,
-    FloatMenuComponent,
-    SearchComponent,
-    GalleryExpandedComponent,
-    CharacterisationDataExpandedComponent,
-    TestingExpandedComponent,
-    ReportsExpandedComponent,
-    ModalComponent,
-    GalleryModalComponent,
-    TestingModalComponent,
-    CdataModalComponent,
-    McompareModalComponent,
-    ReportsModalComponent,
-    SplitPipe,
-    UniquePipe,
-    UniqueRecordPipe,
-    FilterTestsPipe,
-    ElementCheckedPipe,
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule,
-    Ng2SearchPipeModule,
-    AngularStickyThingsModule,
-    ModalModule.forRoot(),
-    NgbModule,
-    ScrollToModule.forRoot(),
-    NgxSpinnerModule,
-    ExportAsModule,
-    ClipboardModule,
-    Ng5SliderModule,
-
-  ],
-  providers: [
-    GalleryService,
-    DataService,
-    UtilityService
-  ],
-  bootstrap: [AppComponent],
-  entryComponents: [
-    GalleryModalComponent, TestingModalComponent, CdataModalComponent, ReportsModalComponent, McompareModalComponent
-  ]
+    declarations: [
+        AppComponent,
+        DashboardComponent,
+        MaterialListComponent,
+        MaterialComponent,
+        HeaderComponent,
+        FooterComponent,
+        GenealogyComponent,
+        GeneralinfoComponent,
+        GalleryComponent,
+        CharacterisationDataComponent,
+        TestingComponent,
+        ReportsComponent,
+        MaterialdetailsComponent,
+        CheckboxGroupComponent,
+        PagenotfoundComponent,
+        FloatMenuComponent,
+        SearchComponent,
+        GalleryExpandedComponent,
+        CharacterisationDataExpandedComponent,
+        TestingExpandedComponent,
+        ReportsExpandedComponent,
+        ModalComponent,
+        GalleryModalComponent,
+        TestingModalComponent,
+        CdataModalComponent,
+        McompareModalComponent,
+        ReportsModalComponent,
+        SplitPipe,
+        UniquePipe,
+        UniqueRecordPipe,
+        FilterTestsPipe,
+        ElementCheckedPipe,
+    ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        Ng2SearchPipeModule,
+        AngularStickyThingsModule,
+        ModalModule.forRoot(),
+        NgbModule,
+        ScrollToModule.forRoot(),
+        NgxSpinnerModule,
+        ExportAsModule,
+        ClipboardModule,
+        Ng5SliderModule,
+        AccordionModule.forRoot()
+    ],
+    providers: [
+        GalleryService,
+        DataService,
+        UtilityService
+    ],
+    bootstrap: [AppComponent],
+    entryComponents: [
+        GalleryModalComponent, TestingModalComponent, CdataModalComponent, ReportsModalComponent, McompareModalComponent
+    ]
 })
 export class AppModule {
 }
