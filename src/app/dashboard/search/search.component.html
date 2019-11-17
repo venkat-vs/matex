@@ -1,0 +1,12 @@
+<section class="dashboard-section">
+  <div class="row">
+    <div class="dashboard-box">
+      <h1>{{DEFAULT_TEXT.WELCOME}} <br>{{DEFAULT_TEXT.BEGIN}} </h1>
+      <div class="search-panel">
+        <input autofocus type="text" placeholder={{DEFAULT_TEXT.SEARCH_PLACEHOLDER}} (focus)="onInputClick()"
+          [(ngModel)]="midasIds">
+        <a class="search-button" (click)="goTo()"></a>
+      </div>
+    </div>
+  </div>
+</section>

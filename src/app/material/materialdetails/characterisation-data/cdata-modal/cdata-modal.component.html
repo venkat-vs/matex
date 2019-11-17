@@ -1,0 +1,44 @@
+<app-modal>
+  <div class="test-modal-head">
+    <div class="mdoal-titles">
+      <h2>{{test.TEST_METHOD}}</h2>
+      <p>{{test.TEST_DATE_REQUESTED | date:'fullDate'}}</p>
+    </div>
+    <div class="modal-action">
+      <a (click)="export('graph')" class="btn btn-primary">Download CSV</a>
+    </div>
+  </div>
+  <div class="data-table" id="myTableIdElementId">
+    <table>
+      <thead>
+      <tr>
+        <th>Component</th>
+        <th>Result</th>
+        <th>Unit</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let result of test.TEST_RESULT; let i = index">
+        <td>{{result.TR_IDNUM_DESCRIPTION}}</td>
+        <td>{{result.TR_F_RESULT}}</td>
+        <td>{{result.TR_UNIT}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="image-link-panel">
+    <h2>Image link title</h2>
+    <p>Instructional copy for button. Button links you to the gallery to view all images associated to this
+      test.</p>
+    <a (click)="open(test)" class="btn btn-primary">View test images</a>
+  </div>
+  <div class="plot-panel" id="graph">
+
+    <h3>Plot title</h3>
+    <p>Plot description copy if necessary.</p>
+
+    <div class="graph">
+      <img alt="" src="/assets/images/graph.png">
+    </div>
+  </div>
+

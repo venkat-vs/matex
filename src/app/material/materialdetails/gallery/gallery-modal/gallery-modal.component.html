@@ -1,0 +1,38 @@
+<app-modal>
+  <div class="gallery-modal-head">
+    <h3>{{Image.imageName}}<span>Image associated with test {{Test.TEST_METHOD}}</span></h3>
+    <div class="action">
+      <a (cbOnSuccess)="copied($event)" [cbContent]=[Image.imageUrl] class="btn btn-primary" ngxClipboard>Copy image
+        link</a>
+      <a (click)="download()" class="btn btn-primary">Download image</a>
+    </div>
+  </div>
+  <div class="gallery-image-slider">
+    <div class="carousel slide" data-ride="carousel" id="carouselExampleIndicators">
+      <div class="carousel-block">
+        <div class="carousel-inner">
+          <div *ngFor="let image of Test.IMAGES; let i = index" [ngClass]="{'active': i==1}"
+               class="carousel-item">
+            <div class="gallery-image__panel">
+              <div class="gallery-image"><img alt="" src="{{image.imageUrl}}"></div>
+              <div class="gallery-description">
+                <!--                <p>Image description 1:</p>-->
+                <!--                <p>Image description 2:</p>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" data-slide="prev" data-wrap="false" href="#carouselExampleIndicators"
+           role="button"></a>
+        <a class="carousel-control-next" data-slide="next" data-wrap="false" href="#carouselExampleIndicators"
+           role="button"></a>
+      </div>
+      <ol class="carousel-indicators">
+        <li *ngFor="let number of Test.IMAGES; let j = index" [attr.data-slide-to]="j"
+            [ngClass]="{'active': j==1}" class="active" data-target="#carouselExampleIndicators">
+          <img alt="" src="{{number.imageUrl}}">
+        </li>
+      </ol>
+    </div>
+  </div>
+</app-modal>

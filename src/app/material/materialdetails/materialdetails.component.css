@@ -1,0 +1,69 @@
+.material-wrapper {
+  background: url(/assets/images/dashboard-bg.jpg) no-repeat;
+  background-size: cover;
+  padding: 100px 0 170px;
+}
+
+.material-tile__grid {
+  position: relative;
+  padding-left: 50px;
+}
+
+.material-tile__block {
+  background: #ffffff;
+  box-shadow: 0 0 26px 0 #002f6c;
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 50px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.flip-button {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 28px;
+  height: 28px;
+  background: url(/assets/images/plus.png) no-repeat;
+  background-size: 28px !important;
+  transition: 0.3s ease;
+}
+
+.flip-button:hover {
+  background: url(/assets/images/plus-black.png) no-repeat;
+}
+
+.material-tile__view {
+  position: relative;
+}
+
+.float-menu-panel {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 160px;
+  padding-top: 100px;
+}
+
+@media (max-width: 1400px) {
+  .float-menu-panel {
+    padding-top: 30px;
+    z-index: 9;
+  }
+
+  .material-tile__grid {
+    padding-left: 100px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .float-menu-panel {
+    display: none;
+  }
+
+  .material-tile__grid {
+    padding-left: 0px;
+  }
+}

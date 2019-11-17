@@ -1,0 +1,266 @@
+@import '../custom-slider.css';
+
+body {
+  padding-top: 90px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.top-header {
+  border-bottom: 1px solid #dfdfdf;
+  padding: 15px 0;
+  z-index: 9999;
+  background: #fff;
+}
+
+.custom-search {
+  padding: 100px 0 0 0;
+}
+
+.container {
+  margin-bottom: 50px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
+
+.doc-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-container {
+  width: 50%;
+  height: 60px;
+  display: flex;
+}
+
+.pdficon {
+  width: 100%;
+  height: 100%;
+}
+
+
+.custom-sidebar {
+  font-size: 12px;
+  border-right: 1px solid #dfdfdf;
+}
+
+.custom-sidebar h5 {
+  text-transform: uppercase;
+  color: #bbb9b9;
+  font-size: 13px;
+}
+
+.custom-sidebar .form-group {
+  padding: 0 0 15px;
+}
+
+.main-content-wrapper .grid-view {
+  padding: 0 0 30px;
+}
+
+.main-content-wrapper .grid-view h4 {
+  margin: 0 0 20px;
+}
+
+.main-content-wrapper .grid-view li {
+  background: #f0f0f0;
+  width: 150px;
+  height: 150px;
+  margin: 0 20px 20px 0;
+}
+
+.hide {
+  display: none !important;
+}
+
+:host .nav .nav-item .nav-link {
+  border-radius: 0px !important;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+:host .nav .nav-item .nav-link.active {
+  background-color: transparent;
+  border-bottom: 2px solid #00aba7;
+  color: black;
+}
+
+:host .compare-button {
+  border-radius: 1em;
+  background-color: #3a377e !important;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+:host .compare-button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+:host .card-selected-indicator {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+  font-weight: normal;
+}
+
+:host .card-selected-indicator.selected {
+  background-color: #00aba7;
+}
+
+:host .tab-content {
+  height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.card {
+  height: 200px;
+}
+
+.card-title {
+  font-weight: 700;
+}
+
+.grid-list-icons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grid-list-icons > span {
+  cursor: pointer;
+}
+
+.grid-view-icon {
+  border-right: 1px solid gray;
+  padding-right: 4px;
+  width: 23px;
+}
+
+.grid-list-icons > span > img {
+  opacity: 0.5;
+}
+
+.grid-icon-img {
+  width: 100%;
+  margin-top: 5px;
+
+}
+
+.icon-active {
+  opacity: 1 !important;
+}
+
+.btn-primary {
+  color: #fff !important;
+  background: none;
+  border-color: #007bff;
+  font-family: inherit;
+}
+
+
+.filter-title-item {
+  display: flex;
+  justify-content: space-between;
+  background: #f6f6f6;
+  border-radius: 10px;
+  padding: 6px 10px;
+  align-items: center;
+}
+
+.filter-title-item h4 {
+  max-width: calc(100% - 50px);
+  color: #bcbec0;
+  font-size: 16px;
+  margin: 0;
+  font-family: "EMprintBold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+}
+
+.checkbox {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  margin: 0;
+}
+
+.checkbox input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox span {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: url(/assets/images/check.png) no-repeat;
+  background-size: 22px !important;
+  transition: 0.3s ease;
+}
+
+.checkbox input[type="checkbox"]:checked + span {
+  background: url(/assets/images/checked.png) no-repeat;
+}
+
+.filter-group {
+  margin-bottom: 30px;
+}
+
+.filter-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.filter-list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 10px;
+  align-items: center;
+}
+
+.filter-list-item h6 {
+  color: #000;
+  margin: 0;
+  font-size: 16px;
+}
+
+.filter-panel {
+  width: 250px;
+  padding-right: 30px;
+}
+
+.report-item__panel {
+  width: calc(100% - 250px);
+  padding-left: 30px;
+  height: 546px;
+  overflow: auto;
+  border-left: 1px solid #f3f3f3;
+}
+
+.layout-toggle-button {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}

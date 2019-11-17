@@ -1,0 +1,59 @@
+.cdata-section {
+  padding: 50px 0 100px;
+}
+
+.cdata-grid-view .row {
+  margin: 0 -7.5px;
+}
+
+.cdata-grid-view .col-sm-4 {
+  padding: 7.5px;
+}
+
+.data-card {
+  width: 100%;
+  display: inline-block;
+  padding: 25px;
+  background: #f4f4fd;
+  border-radius: 25px;
+  width: 100%;
+}
+
+  .data-card h4 {
+  font-size: 16px;
+  color: #b1b1c2;
+  text-transform: uppercase; 
+  margin: 0 0 10px;
+  font-family: "EMprintSemibold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  line-height: 16px;
+}  
+
+.data-card h2 {
+  font-family: "EMprintBold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+  margin: 0;
+  line-height: 24px;
+}
+
+.data-card .description {
+  min-height: 100px;
+}
+
+.data-card .description p {
+  margin: 0;
+}
+
+.data-card a {
+  color: #000000 !important;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.data-card a:hover {
+  color: #f2ac33 !important;
+  border-color: #f2ac33;
+}

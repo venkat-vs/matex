@@ -1,0 +1,48 @@
+<div class="testing-wrapper">
+  <h1>Testing</h1>
+  <div class="testing-content">
+    <div class="testing-nav">
+      <div class="nav-title">
+        <h3>UNIT/RUN</h3>
+      </div>
+      <div class="nav-menu">
+        <ul>
+          <li *ngFor="let testing of testingDb; let n = index"><a
+            (click)="filterUnit($event,n)"
+            [ngClass]="{'active': n === isSelectedIndex }">{{testing.CHILD_SAMPLE_DESCRIPTION | split: 'unit'}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="testing-table">
+      <table>
+        <thead>
+        <tr>
+          <th>MB</th>
+          <th>START
+          <th> END</th>
+          <th> FEED ID</th>
+          <th>CATALYST ID</th>
+          <th> PRODUCT ID (TYPE)</th>
+        </tr>
+        </thead>
+        <thead *ngIf="result">
+        <tr *ngFor="let testing of result; let i = index">
+          <td>{{testing.CHILD_SAMPLE_DESCRIPTION | split: 'MB'}}</td>
+          <td>{{testing.INTERVALSTART | date}}</td>
+          <td>{{testing.INTERVALEND | date}}</td>
+          <td>
+            <a href="#">{{testing.FEED_ID}}</a>
+          </td>
+          <td><a href="#">18-067404</a></td>
+          <td>
+            <p>{{testing.CHILD_SAMPLE_ID}} (TLP)</p>
+          </td>
+        </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+  <div class="expand-link"><a class="section-link" routerLink="/material-details/testing-detail">Expand tile to view
+    full Testing results</a></div>
+</div>

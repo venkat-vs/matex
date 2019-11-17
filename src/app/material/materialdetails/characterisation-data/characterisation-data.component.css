@@ -1,0 +1,117 @@
+.data-wrapper h1 {
+  font-size: 32px;
+  color: #000000;
+  margin: 0 0 40px;
+  font-family: "EMprintBold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+}
+
+.data-card {
+  display: inline-block;
+  padding: 25px;
+  background: #f4f4fd;
+  border-radius: 25px;
+  width: 100%;
+}
+
+.data-card h4 {
+  font-size: 16px;
+  color: #b1b1c2;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  font-family: "EMprintSemibold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.data-card h2 {
+  font-family: "EMprintBold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+  margin: 0;
+  line-height: 24px;
+}
+
+.data-card .description {
+  min-height: 100px;
+}
+
+.data-card .description p {
+  margin: 0;
+}
+
+.data-card a {
+  color: #000000 !important;
+  border-bottom: 1px solid #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.data-card a:hover {
+  color: #f2ac33 !important;
+  border-color: #f2ac33;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  width: 15px;
+  height: 24px;
+  top: 50%;
+  margin-top: -12px;
+}
+
+.carousel-control-prev {
+  background: url(/assets/images/carousel-left-arrow.png) no-repeat;
+  left: 0px;
+}
+
+.carousel-control-next {
+  background: url(/assets/images/carousel-right-arrow.png) no-repeat;
+  right: 0px;
+}
+
+.carousel-indicators {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 -10px;
+  text-align: center;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background: #e2e2e2;
+  border-radius: 11px;
+  border: 0px;
+  opacity: 1;
+}
+
+.carousel-indicators .active {
+  background: #bcbec0;
+}
+
+.carousel {
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.data__panel {
+  display: inline-block;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.row {
+  margin: 0 -7.5px;
+}
+
+.row .col-sm-4 {
+  padding: 0 7.5px;
+}
+
+.desc {
+  height: 70px;
+  overflow: hidden;
+}

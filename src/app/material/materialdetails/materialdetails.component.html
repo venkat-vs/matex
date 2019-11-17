@@ -1,0 +1,58 @@
+<section #genealogy class="material-wrapper">
+  <div class="container">
+    <div #boundary class="material-tile__view">
+      <div #spacer></div>
+      <div [boundary]="boundary" [spacer]="spacer" class="float-menu-panel" stickyThing>
+        <app-float-menu
+          (sendElement)="scrollToElement($event, genealogy, chData ,testing, reports)"></app-float-menu>
+      </div>
+      <div class="material-tile__grid">
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="material-tile__block">
+              <ng-container *ngIf="materials && materials.length && materials[0].TEST">
+                <app-generalinfo [materialInfo]="materials[0]"></app-generalinfo>
+              </ng-container>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="material-tile__block">
+              <a class="flip-button" routerLink="/material-details/gallery-detail"></a>
+              <ng-container *ngIf="materials && materials.length">
+                <app-gallery [galleryImages]="materials[0].TEST"></app-gallery>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div #chData class="row">
+          <div class="col-sm-12">
+            <div class="material-tile__block">
+              <a class="flip-button" routerLink="/material-details/Characterization-data-detail"></a>
+              <ng-container *ngIf="materials && materials.length && materials[0].TEST">
+                <app-characterisation-data [mtests]="materials[0].TEST"></app-characterisation-data>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div #testing class="row">
+          <div class="col-sm-12">
+            <div class="material-tile__block">
+              <a class="flip-button" routerLink="/material-details/testing-detail"></a>
+              <ng-container *ngIf="materials && materials.length && materials[0].TEST">
+                <app-testing [testingDb]="materials[0].TESTING_DB"></app-testing>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <div #reports class="row">
+          <div class="col-sm-12">
+            <div class="material-tile__block">
+              <a class="flip-button" routerLink="/material-details/report-detail"></a>
+              <app-reports></app-reports>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

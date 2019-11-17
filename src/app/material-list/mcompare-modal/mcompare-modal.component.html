@@ -1,0 +1,104 @@
+<app-modal>
+  <button class="btn btn-light rounded-pill text-primary border-primary float-right m-2"
+    *ngIf="">Download comparator results
+  </button>
+  <div class="clearfix"></div>
+  <div class="position-relative">
+
+    <div class="tab-content">
+      <div class="report-section">
+        <div class="filter-panel custom-sidebar">
+
+          <div class="form-group">
+            <h5>TEST METHOD</h5>
+            <ul _ngcontent-bgw-c14="" class="filter-list">
+              <li _ngcontent-bgw-c14="" class="filter-list-item" *ngFor="let test of testMethods">
+                <label _ngcontent-bgw-c14="" class="checkbox-all">
+                  <input _ngcontent-bgw-c14="" type="checkbox" ng-reflect-model="true"
+                    class="ng-untouched ng-pristine ng-valid" checked=""
+                    (click)="updateMidasByTestCheckedProp($event, test.TestMethod)">
+                  <span _ngcontent-bgw-c14="" class="select-all">                    
+                    {{test.TestMethod}} {{test.Test_Facility}}
+                    ({{test.meterials.length}})
+                  </span>
+                </label>
+              </li>
+    
+            </ul>
+
+          </div>
+        </div>
+        <div>
+          <div class="report-item__panel" *ngFor="let test of testMethods | elementChecked:
+        'checked'">
+            <div>
+              <h5 class="mt-3 font-weight-bold">{{test.TestMethod}}</h5>
+              <p> {{test.Sample_Description}}</p>
+              <button class="btn btn-light rounded-pill text-primary border-primary"
+                (click)="showHideGraph(test.TestMethod)">Plot
+                Test</button>
+            </div>
+            <table class="table table-borderless m-3 mt-3 mb-0">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-right border-bottom">Component, UOM</th>
+                  <th scope="col" class="border-right border-bottom p-0">
+                    <h6 class="ml-3">{{test.meterials[0].MIDAS_Id}}</h6>
+
+                    <p class="ml-3 material-desc">
+                      {{test.meterials[0].Sample_Description}}</p>
+                    <div class="comp-date" style="background:#b3d304;">
+                      10/28/2019
+                    </div>
+
+                  </th>
+                  <th scope="col" class="border-right border-bottom p-0">
+                    <h6 class="ml-3">{{test.meterials[1].MIDAS_Id}}</h6>
+
+                    <p class="ml-3 material-desc">
+                      {{test.meterials[1].Sample_Description}}</p>
+                    <div class="comp-date" style="background:#39387a;">
+                      10/28/2019
+                    </div>
+
+                  </th>
+                  <th scope="col" class="border-right border-bottom p-0">
+                    <h6 class="ml-3">{{test.meterials[2].MIDAS_Id}}</h6>
+
+                    <p class="ml-3 material-desc">
+                      {{test.meterials[2].Sample_Description}}</p>
+                    <div class="comp-date" style="background:#00aba7;">
+                      10/28/2019
+                    </div>
+
+                  </th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let component of test.Components">
+                  <td class="border border-left-0" style="padding:6px 12px;">{{component.component}}, {{component.uom}}
+                  </td>
+                  <td class="border" style="background:#b3d304;color:white;padding:6px 12px;">
+                    {{component.meterials[0].result}}</td>
+                  <td class="border" style="background:#39387a;color:white;padding:6px 12px;">
+                    {{component.meterials[1].result}}
+                  </td>
+                  <td class="border" style="background:#00aba7;color:white;padding:6px 12px;">
+                    {{component.meterials[2].result}}
+                  </td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="graph" *ngIf="plotTestMethods[test.TestMethod]">
+              <img alt="" src="/assets/images/graph1.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-modal>

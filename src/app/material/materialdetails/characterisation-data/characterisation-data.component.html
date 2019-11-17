@@ -1,0 +1,32 @@
+<div class="data-wrapper">
+  <h1>Characterization data</h1>
+  <div class="carousel slide" data-ride="carousel" id="dataCarousel">
+    <ol class="carousel-indicators">
+      <li *ngFor="let oneTest of testData; let i = index" [attr.data-slide-to]="i" class="active"
+          data-target="#dataCarousel"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div *ngFor="let oneTest of testData; let i = index" [ngClass]="{'active': i==0}" class="carousel-item">
+        <div class="data__panel">
+          <div class="row">
+            <div *ngFor="let test of oneTest" class="col-sm-4">
+              <div class="data-card">
+                <h4>Test type</h4>
+                <h2>{{test.TEST_METHOD}}</h2>
+                <div class="description">
+                  <p>{{test.TEST_DATE_REQUESTED | date:'fullDate'}}</p>
+                  <p class="desc">{{test.TEST_METHOD_DESCR}}</p>
+                </div>
+                <a (click)="open(test)">View test details ›</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" data-slide="prev" href="#dataCarousel" role="button"></a>
+    <a class="carousel-control-next" data-slide="next" href="#dataCarousel" role="button"></a>
+  </div>
+  <a class="section-link" routerLink="/material-details/Characterization-data-detail">Expand tile to view full
+    Characterization Data</a>
+</div>

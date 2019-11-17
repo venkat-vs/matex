@@ -1,0 +1,21 @@
+<section class="cdata-section">
+  <div class="container">
+    <div class="back"><a (click)="back()" class="back-link">‹ Back to material</a></div>
+    <h1 class="page-title">Characterization Data</h1>
+    <div class="cdata-grid-view">
+      <div class="row">
+        <div *ngFor="let test of tests" class="col-sm-4">
+          <div class="data-card">
+            <h4>Test type</h4>
+            <h2>{{test.TEST_METHOD}}</h2>
+            <div class="description">
+              <p>{{test.TEST_DATE_REQUESTED | date:'fullDate'}}</p>
+              <p>{{test.TEST_METHOD_DESCR}}</p>
+            </div>
+            <a (click)="open(test)">View test details ›</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

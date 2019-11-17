@@ -1,0 +1,87 @@
+.float-menu {
+  position: relative;
+  width: 160px;
+  padding-top: 100px;
+  list-style: none;
+  margin-bottom: 0;
+  padding: 0;
+  text-align: center;
+  margin-left: -140px;
+}
+
+.float-menu__items {
+  margin: 30px 0;
+}
+
+.float-menu__link {
+  display: inline-block;
+  width: 100%;
+  font-size: 16px;
+  color: #ffffff !important;
+  cursor: pointer;
+  font-family: "EMprintBold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.float-menu__link i {
+  display: block;
+  width: 45px;
+  height: 45px;
+  background-size: 45px !important;
+  margin: 0 auto 10px;
+  transition: 0.3s ease;
+}
+
+.float-menu__link .icon-generology {
+  background: url(/assets/images/icon-generology.png) no-repeat;
+}
+
+.float-menu__link:hover .icon-generology {
+  background: url(/assets/images/icon-generology-hover.png) no-repeat;
+}
+
+.float-menu__link .icon-info {
+  background: url(/assets/images/icon-info.png) no-repeat;
+}
+
+.float-menu__link:hover .icon-info {
+  background: url(/assets/images/icon-info-hover.png) no-repeat;
+}
+
+.float-menu__link .icon-data {
+  background: url(/assets/images/icon-data.png) no-repeat;
+}
+
+.float-menu__link:hover .icon-data {
+  background: url(/assets/images/icon-data-hover.png) no-repeat;
+}
+
+.float-menu__link .icon-testing {
+  background: url(/assets/images/icon-testing.png) no-repeat;
+}
+
+.float-menu__link:hover .icon-testing {
+  background: url(/assets/images/icon-testing-hover.png) no-repeat;
+}
+
+.float-menu__link .icon-reports {
+  background: url(/assets/images/icon-reports.png) no-repeat;
+}
+
+.float-menu__link:hover .icon-reports {
+  background: url(/assets/images/icon-reports-hover.png) no-repeat;
+}
+
+@media (max-width: 1400px) {
+  .float-menu {
+    margin: 0;
+    width: 80px;
+    padding: 0;
+  }
+
+  .float-menu__link {
+    font-size: 12px;
+    word-break: break-all;
+  }
+}

@@ -1,0 +1,57 @@
+<section class="testing-section">
+  <div class="container">
+    <div class="back"><a (click)="back()" class="back-link">‹ Back to material</a></div>
+    <!-- <button (click)="open()">Click to open modal</button> -->
+    <div class="page-head">
+      <h1 class="page-title">Testing</h1>
+      <div class="action">
+        <a class="btn btn-primary">Download CSV</a>
+      </div>
+    </div>
+    <div class="testing-content">
+      <div class="testing-nav">
+        <div class="nav-title">
+          <h3>UNIT/RUN</h3>
+        </div>
+        <div class="nav-menu">
+          <ul>
+            <li *ngFor="let number of [0,1,2,3,4,5]; let n = index"><a [ngClass]="{'active': n==1}"
+                                                                       href="#">518B/58</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="testing-table">
+        <table>
+          <thead>
+          <tr>
+            <th>MB</th>
+            <th>START
+            <th> END</th>
+            <th> FEED ID</th>
+            <th>CATALYST ID</th>
+            <th> PRODUCT ID (TYPE)</th>
+          </tr>
+          </thead>
+          <thead>
+          <tr *ngFor="let number of [0,1,2,3,4,5] ; let i = index">
+            <td>{{i + 1}}</td>
+            <td>10/03/2019</td>
+            <td>10/03/2019</td>
+            <td>
+              <a href="#">19-012345</a>
+              <a href="#">19-012345</a>
+            </td>
+            <td><a href="#">18-067404</a></td>
+            <td>
+              <p>19-007567 (TLP)</p>
+              <p>19-007568 (OFFGAS)</p>
+              <p>19-007569 (IR)</p>
+            </td>
+          </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

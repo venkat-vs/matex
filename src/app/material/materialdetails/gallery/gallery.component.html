@@ -1,0 +1,21 @@
+<div class="gallery-wrapper">
+  <h1>Gallery</h1>
+  <div class="carousel slide" data-ride="carousel" id="carouselIndicators">
+    <ol class="carousel-indicators">
+      <li *ngFor="let item of galleryImages" class="active" data-slide-to="i"
+          data-target="#carouselIndicators"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div *ngFor="let item of galleryImages; let i = index;" [ngClass]="{'active': i==0}" class="carousel-item">
+        <div *ngFor="let image of item.IMAGES" class="gallery-image__panel"
+             ngbTooltip={{image.imageName}} placement="auto" tooltipClass="my-custom-class">
+          <div (click)="openLightBox(image, item)" class="gallery-image"><img [attr.src]="image?.imageUrl ? image.imageUrl : 'assets/images/Image-thumbnail-icon.png'" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" data-slide="prev" href="#carouselIndicators" role="button"></a>
+    <a class="carousel-control-next" data-slide="next" href="#carouselIndicators" role="button"></a>
+  </div>
+  <a class="section-link" routerLink="/material-details/gallery-detail">Expand tile to view full gallery</a>
+</div>

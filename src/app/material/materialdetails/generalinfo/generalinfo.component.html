@@ -1,0 +1,53 @@
+<div class="content-block">
+  <div class="title__panel">
+    <h1>{{materialInfo.MIDAS_NUMBER}}</h1>
+    <div class="id-block">
+      <div class="id-image"><img alt="" src="assets/images/hfr.png"></div>
+      <div class="id-data">
+        <div class="id-panel">
+          <label>{{DEFAULT_TEXT.PHS}}</label>
+          <p>000000-00</p>
+        </div>
+        <div class="id-panel">
+          <label>{{DEFAULT_TEXT.CHEMID}}</label>
+          <p>{{materialInfo.MIDAS_CHEM_ID}}</p>
+          <p *ngIf="materialInfo.MIDAS_CHEM_ID  === ''"> No Data Available </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info-tab">
+    <label>{{DEFAULT_TEXT.OWNER}} <span>{{materialInfo.MIDAS_REQUESTER}}</span><span
+      *ngIf="materialInfo.MIDAS_REQUESTER  === ''"> No Data Available </span></label>
+    <label>{{DEFAULT_TEXT.DATE_CREATED}} <span>{{materialInfo.MIDAS_CREATION_DATE | date:'dd/MM/yyyy'}}</span><span
+      *ngIf="materialInfo.MIDAS_CREATION_DATE  === ''"> No Data Available </span></label>
+  </div>
+  <div class="info-content">
+    <div class="content__panel">
+      <label>{{DEFAULT_TEXT.DESC}}</label>
+      <p>{{materialInfo.MIDAS_SAMPLE_DESCRIPTION}}</p>
+      <p *ngIf="materialInfo.MIDAS_SAMPLE_DESCRIPTION === ''"> No Data Available </p>
+    </div>
+    <div class="content__panel">
+      <label>{{DEFAULT_TEXT.REF_ID}}</label>
+      <p>{{materialInfo.MIDAS_REFERENCE}}</p>
+      <p *ngIf="materialInfo.MIDAS_REFERENCE === ''"> No Data Available </p>
+    </div>
+    <div class="content__panel">
+      <label>{{DEFAULT_TEXT.ASSOCIATED_ID}}</label>
+      <table *ngIf="(AssociatedID | json) != '{}'">
+        <thead>
+        <tr>
+          <th *ngFor="let key of AssociatedID | keyvalue">{{ key.key }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td *ngFor="let key of AssociatedID | keyvalue">{{key.value}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <p *ngIf="(AssociatedID | json) === '{}'">No Data Available</p>
+    </div>
+  </div>
+</div>

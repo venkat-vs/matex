@@ -1,0 +1,8 @@
+<div [@triggerName]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet" (activate)="onActivate()"></router-outlet>
+</div>
+<ngx-spinner [fullScreen]="true"
+             bdColor="rgba(51,51,51,0.8)"
+             color="#209099"
+             size="medium"
+             size="medium" type="square-jelly-box"></ngx-spinner>

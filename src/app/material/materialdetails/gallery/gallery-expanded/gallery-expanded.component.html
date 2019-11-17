@@ -1,0 +1,46 @@
+<section class="gallery-details-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 gallery-detail__panel">
+        <div class="back"><a (click)="back()" class="back-link">‹ Back to material</a></div>
+        <h1 class="page-title">Gallery</h1>
+        <div class="gallery-section">
+          <div class="filter-panel">
+            <app-checkbox-group (toggle)="ontestChange($event)"
+                                [options]="testOptions"></app-checkbox-group>
+          </div>
+          <div class="gallery-item__panel">
+            <div *ngFor="let ele of data; let num = index" class="gallery-block">
+              <div class="gallery-item__title">
+                <h2>{{ele.TEST_METHOD}} <i class="info" ngbTooltip={{ele.TEST_METHOD_DESCR}} placement="auto"
+                                           tooltipClass="my-custom-class"><span></span> </i></h2>
+                <div class="actions">
+                  <button (click)="selectAllImages(ele)"
+                          class="btn btn-primary">{{ele?.isSelectAll ? 'Unselect All' : 'Select All'}}</button>
+                  <button (click)="download(ele)" [disabled]="!ele.selectedItemsCount ? true : null"
+                          class="btn btn-primary">Download selected
+                    images {{ ele.selectedItemsCount }}</button>
+                </div>
+              </div>
+              <div class="row">
+                <div *ngFor="let item of ele.IMAGES |filter:term" class="col-sm-4">
+                  <div class="gallery-card">
+                    <div class="gallery-image">
+                      <img (click)="open(item, ele)" alt="" [attr.src]="item?.imageUrl ? item.imageUrl : 'assets/images/Image-thumbnail-icon.png'">
+                    </div>
+                    <div class="gallery-content">
+                      <h3>{{item.imageName}}</h3>
+                      <label class="checkbox"><input
+                        (change)="selectedImageToggle(ele, item, $event)"
+                        [checked]="item.checked" type="checkbox"><span></span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

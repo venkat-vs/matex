@@ -1,0 +1,24 @@
+::ng-deep .modal-dialog {
+  background: #2b2926;
+}
+
+::ng-deep .modal-backdrop {
+  background: #2b2926 !important;
+  opacity: 1 !important;
+}
+
+::ng-deep .modal-dialog {
+  width: calc(100% - 40px);
+  max-width: 1435px;
+}
+
+::ng-deep .modal-content {
+  border-radius: 30px;
+}
+
+.modal-panel {
+  max-width: 1174px;
+  width: 100%;
+  margin: auto;
+  padding: 20px 0;
+}

@@ -1,0 +1,26 @@
+<section class="testing-section">
+  <div class="container">
+    <div class="back"><a (click)="back()" class="back-link">‹ Back to material</a></div>
+    <!-- <button (click)="open()">Click to open modal</button> -->
+    <h1 class="page-title">Reports</h1>
+    <div class="report-section">
+      <div class="filter-panel">
+        <app-checkbox-group></app-checkbox-group>
+      </div>
+      <div class="report-item__panel">
+        <div *ngFor="let number of [0,1]" class="report-item">
+          <h2>SRA Correspondence</h2>
+          <div class="row">
+            <div *ngFor="let number of [0,1,2,3,4,5,6,7,8]" class="col-sm-4">
+              <div class="report-card">
+                <img alt="" src="assets/images/placeholder.jpg">
+                <h3>File name</h3>
+                <p>Description goes here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

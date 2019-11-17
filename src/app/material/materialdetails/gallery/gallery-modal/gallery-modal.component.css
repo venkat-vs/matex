@@ -1,0 +1,99 @@
+.gallery-modal-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.gallery-modal-head h3 {
+  font-size: 32px;
+  color: #000000;
+  line-height: 28px;
+  font-family: "EMprintBold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+
+.gallery-modal-head h3 span {
+  display: block;
+  font-size: 16px;
+  color: #bcbec0;
+  font-family: "EMprintSemibold", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font-weight: 600;
+}
+
+.action .btn {
+  margin-left: 20px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  width: 15px;
+  height: 24px;
+  top: 50%;
+  margin-top: -12px;
+}
+
+.carousel-control-prev {
+  background: url(/assets/images/carousel-left-arrow.png) no-repeat;
+  left: 0px;
+}
+
+.carousel-control-next {
+  background: url(/assets/images/carousel-right-arrow.png) no-repeat;
+  right: 0px;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 1068px;
+  margin: auto;
+}
+
+.gallery-description {
+  margin: 10px 0 0;
+}
+
+.gallery-description p {
+  font-size: 18px;
+  margin: 0;
+}
+
+.carousel-indicators {
+  position: relative;
+  margin: 20px auto 0;
+}
+
+.carousel-indicators li img {
+  height: 80px;
+  object-fit: cover;
+}
+
+.carousel-indicators li {
+  width: 100px;
+  height: 80px;
+  text-indent: 0;
+  margin: 0 14px;
+  padding: 0;
+  background: none !important;
+  border: 0 !important;
+  box-sizing: border-box;
+}
+
+.carousel-indicators li.active {
+  box-shadow: 0 0 35px 5px rgba(0, 0, 0, .09);
+}
+
+.carousel-block {
+  position: relative;
+  padding: 0 44px;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+::ng-deep .back {
+  margin-bottom: 20px;
+}

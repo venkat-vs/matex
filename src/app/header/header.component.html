@@ -1,0 +1,20 @@
+<header class="navbar">
+  <div class="container">
+    <div class="nav__panel">
+      <a class="navbar-brand" href="#">Materials Explorer</a>
+      <div class="nav-items">
+        <div *ngIf="!showSearch" [ngClass]="{'active': showSearchPanel}" class="search-panel">
+          <div class="srearch__form">
+            <input placeholder="Keyword search: MIDAS number, descriptive terms, program name, chemistry, etc."
+                   type="text">
+            <a (click)="showSearchPanel = !showSearchPanel" class="search-button"></a>
+          </div>
+          <a (click)="showSearchPanel = !showSearchPanel" class="search-button toggle--link"></a>
+        </div>
+        <div class="feedback-panel"><a class="feedback-link"><i></i><span>Feedback</span></a></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<app-genealogy *ngIf="!showGenealogy"></app-genealogy>
