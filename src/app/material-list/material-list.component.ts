@@ -1,14 +1,14 @@
-import {Component, OnInit, Input, Output} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Options} from "ng5-slider";
-import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {McompareModalComponent} from "./mcompare-modal/mcompare-modal.component";
+import {Component, OnInit, Input, Output} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Options} from 'ng5-slider';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {McompareModalComponent} from './mcompare-modal/mcompare-modal.component';
 // import { Lightbox } from 'ngx-lightbox';
-import * as dashboardJson from "../shared/data/dashboard.json";
-import * as preferredTestsJson from "../shared/data/preferredTests.json";
-import * as documentsJson from "../shared/data/document.json";
-// import * as  documentJson from '../../../../data/document.json';
-import {DataService} from "../shared/services/data.service";
+import {dashboardJson} from '../shared/data/dashboard';
+import {preferredTestsJson} from '../shared/data/preferredTests';
+import {documentsJson} from '../shared/data/document';
+// import * as  documentJson from '../../../../data/document.ts';
+import {DataService} from '../shared/services/data.service';
 
 @Component({
     selector: 'app-material-list',
@@ -16,7 +16,7 @@ import {DataService} from "../shared/services/data.service";
     styleUrls: ['./material-list.component.scss']
 })
 export class MaterialListComponent implements OnInit {
-    private _albums = [];
+    private albums = [];
     sourceData = [];
     dashboardData = [];
     documentData = [];
@@ -32,10 +32,10 @@ export class MaterialListComponent implements OnInit {
     selectedItems = [];
     dropdownSettings = {};
     midasOwners = [];
-    activeView = "grid";
-    activeTab = "material";
-    value: number = -40;
-    highValue: number = 60;
+    activeView = 'grid';
+    activeTab = 'material';
+    value = -40;
+    highValue = 60;
     options: Options = {
         floor: 0,
         ceil: 100
@@ -55,8 +55,8 @@ export class MaterialListComponent implements OnInit {
         private data: DataService,
         private modalService: NgbModal
     ) {
-        this.preferredTests = preferredTestsJson["default"];
-        this.documents = documentsJson["default"];
+        this.preferredTests = preferredTestsJson.default;
+        this.documents = documentsJson.default;
     }
 
     ngOnInit() {
@@ -68,16 +68,16 @@ export class MaterialListComponent implements OnInit {
             noSwitching: true,
             translate: (value: number): string => {
                 if (value === -40) {
-                    return "midas no" + value;
+                    return 'midas no' + value;
                 }
-                return "$" + value;
+                return '$' + value;
             }
         };
         this.route.queryParams.subscribe(params => {
             // Defaults to 0 if no query param provided.
-            this.midasIds = ["4062106", "4058656", "405123", "4058657"];
-            this.sourceData = dashboardJson["default"].filter(
-                x => this.midasIds.includes(x["MIDAS_Id"]) === true
+            this.midasIds = ['4062106', '4058656', '405123', '4058657'];
+            this.sourceData = dashboardJson.default.filter(
+                x => this.midasIds.includes(x.MIDAS_Id) === true
             );
             this.sourceData.map(midas => {
                 midas.Owner.checked = true;
@@ -95,11 +95,11 @@ export class MaterialListComponent implements OnInit {
         this.selectedItems = [];
         this.dropdownSettings = {
             singleSelection: false,
-            text: "Select Countries",
-            selectAllText: "Select All",
-            unSelectAllText: "UnSelect All",
+            text: 'Select Countries',
+            selectAllText: 'Select All',
+            unSelectAllText: 'UnSelect All',
             enableSearchFilter: true,
-            classes: "myclass custom-class",
+            classes: 'myclass custom-class',
             badgeShowLimit: 0
         };
     }
@@ -120,7 +120,7 @@ export class MaterialListComponent implements OnInit {
     //     noSwitching: true,
     //     translate: (value: any): string => {
     //       if (value === component.result) {
-    //         return "midas no" + value;
+    //         return 'midas no' + value;
     //       }
     //       return value;
     //     }
@@ -141,14 +141,16 @@ export class MaterialListComponent implements OnInit {
 
     getDashbardData() {
         this.dashboardData = this.sourceData.filter(
-            x => this.midasIds.includes(x["MIDAS_Id"]) === true
+            x => this.midasIds.includes(x.MIDAS_Id) === true
         );
     }
 
     updateMidasByTestCheckedProp(checked, testMethod) {
         this.dashboardData.map(midas => {
             midas.Tests.map(test => {
-                if (test.TestMethod === testMethod) test.checked = checked;
+                if (test.TestMethod === testMethod) {
+                    test.checked = checked;
+                }
             });
         });
     }
@@ -156,8 +158,9 @@ export class MaterialListComponent implements OnInit {
     selectAllTestMethod() {
         this.isTestMethodSelectAll = !this.isTestMethodSelectAll;
         const allMidasCheckBoxes = window.document.getElementsByClassName('test-method-checkbox');
-        for (let i = 0; i < allMidasCheckBoxes.length; i++) {
-            allMidasCheckBoxes[i]['checked'] = this.isTestMethodSelectAll;
+        // @ts-ignore
+        for (const allMidasCheckBox of allMidasCheckBoxes) {
+            (allMidasCheckBox as HTMLInputElement).checked = this.isTestMethodSelectAll;
         }
         this.filterUnique(this.testMethods, 'TestMethod').forEach(test => {
             this.updateMidasResult(this.isTestMethodSelectAll, test.TestMethod);
@@ -167,8 +170,9 @@ export class MaterialListComponent implements OnInit {
     selectAllOwnerMidas() {
         this.isOwnerSelectAll = !this.isOwnerSelectAll;
         const allMidasCheckBoxes = window.document.getElementsByClassName('owner-midas-checkbox');
-        for (let i = 0; i < allMidasCheckBoxes.length; i++) {
-            allMidasCheckBoxes[i]['checked'] = this.isOwnerSelectAll;
+        // @ts-ignore
+        for (const allMidasCheckBox of allMidasCheckBoxes) {
+            (allMidasCheckBox as HTMLInputElement).checked = this.isOwnerSelectAll;
         }
         this.filterUnique(this.sourceData, 'Owner').forEach(midas => {
             this.updateMidasResult(this.isOwnerSelectAll, midas.Owner.id);
@@ -231,13 +235,13 @@ export class MaterialListComponent implements OnInit {
 
     open(index: number): void {
         // open lightbox
-        // this._lightbox.open(this._albums, index);
+        // this._lightbox.open(this.albums, index);
     }
 
-    close(): void {
+    /*close(): void {
         // close lightbox programmatically
         // this._lightbox.close();
-    }
+    }*/
 
     ownerMidasCount() {
         this.ownerMidasCounts = {};
@@ -290,15 +294,19 @@ export class MaterialListComponent implements OnInit {
     }
 
     goToCompareResult(): void {
-        if (this.materialsToCompare.length !== 3) return;
+        if (this.materialsToCompare.length !== 3) {
+            return;
+        }
         const modalRef = this.modalService.open(McompareModalComponent);
         modalRef.componentInstance.dashboardData = this.dashboardData;
         modalRef.componentInstance.selectedMaterials = this.materialsToCompare;
     }
 
     goToMidasDetail($event) {
-        if ($event.target.type === "checkbox") return;
-        this.router.navigate(["/material-details"]);
+        if ($event.target.type === 'checkbox') {
+            return;
+        }
+        this.router.navigate(['/material-details']);
     }
 
     updateMaterialsToCompare(event, midasId) {

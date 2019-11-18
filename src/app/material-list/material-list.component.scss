@@ -1,7 +1,8 @@
 @import '../custom-slider.css';
 
+::ng-deep
 body {
-  padding-top: 90px;
+  overflow-x: hidden;
 }
 
 ul {
@@ -26,7 +27,7 @@ ul {
 }
 
 .row {
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 
 .doc-container {
@@ -125,13 +126,13 @@ ul {
 }
 
 :host .tab-content {
-  height: calc(100vh - 200px);
-  overflow-y: auto;
+  /*height: calc(100vh - 200px);
+  overflow-y: auto;*/
 }
 
-.card {
+/*.card {
   height: 200px;
-}
+}*/
 
 .card-title {
   font-weight: 700;
@@ -257,12 +258,6 @@ ul {
   height: 546px;
   overflow: auto;
   border-left: 1px solid #f3f3f3;
-}
-
-.layout-toggle-button {
-  position: absolute;
-  top: 0px;
-  right: 0px;
 }
 
 :host {

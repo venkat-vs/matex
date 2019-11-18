@@ -4,8 +4,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import {ExportAsConfig, ExportAsService} from 'ngx-export-as';
 
-import * as preferredTestsJson from '../../shared/data/preferredTests.json';
 import {UtilityService} from '../../shared/services/utility.service';
+import {preferredTestsJson} from "../../shared/data/preferredTests";
 
 const exportAsConfig: ExportAsConfig = {
   type: 'csv', // the type you want to download
