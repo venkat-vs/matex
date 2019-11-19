@@ -10,21 +10,48 @@
         <div class="filter-panel custom-sidebar">
 
           <div class="form-group">
-            <h5>TEST METHOD</h5>
+              <accordion>
+                  <accordion-group #testMethodAccordionGroup>
+
+                      <!--Header-->
+                      <div accordion-heading class="m-2">
+                          <div class="font-weight-bold">
+                              TEST METHOD
+                              <i style="line-height: 5px;" class="float-right fa" [class.fa-chevron-down]="!testMethodAccordionGroup.isOpen" [class.fa-chevron-up]="testMethodAccordionGroup.isOpen"></i>
+                          </div>
+                      </div>
+                      <!--Header-->
+
+                      <!--Body-->
+                      <ul class="list-group checkbox-panel-list">
+                          <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;">
+                              <label class="float-left m-0" (click)="selectAllTestMethod()">{{ isTestMethodSelectAll ? 'Un-select All' : 'Select All'}}</label>
+                          </li>
+                          <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;"
+                              *ngFor="let test of testMethods">
+                              <label class="float-left m-0"> {{test.TestMethod}} {{test.Test_Facility}} ({{test.meterials.length}}) </label>
+                              <label class="checkbox float-right">
+                                  <input type="checkbox" class="test-method-checkbox-ms-compare" (click)="updateMidasByTestCheckedProp($event.target.checked, test.TestMethod)" checked=""><span></span>
+                              </label>
+                          </li>
+                      </ul>
+                      <!--Body-->
+
+                  </accordion-group>
+              </accordion>
+
+            <!--<h5>TEST METHOD</h5>
             <ul _ngcontent-bgw-c14="" class="filter-list">
               <li _ngcontent-bgw-c14="" class="filter-list-item" *ngFor="let test of testMethods">
                 <label _ngcontent-bgw-c14="" class="checkbox-all">
                   <input _ngcontent-bgw-c14="" type="checkbox" ng-reflect-model="true"
                     class="ng-untouched ng-pristine ng-valid" checked=""
                     (click)="updateMidasByTestCheckedProp($event, test.TestMethod)">
-                  <span _ngcontent-bgw-c14="" class="select-all">                    
-                    {{test.TestMethod}} {{test.Test_Facility}}
-                    ({{test.meterials.length}})
-                  </span>
+                  <span _ngcontent-bgw-c14="" class="select-all">{{test.TestMethod}} {{test.Test_Facility}} ({{test.meterials.length}})</span>
                 </label>
               </li>
-    
-            </ul>
+
+            </ul>-->
 
           </div>
         </div>

@@ -194,3 +194,62 @@
     width: 250px;
     padding-right: 30px;
 }
+
+
+/*  ________________________________    */
+:host ::ng-deep .panel {
+    margin-bottom: 20px !important;
+}
+
+:host ::ng-deep .panel .panel-default {
+    background-color: transparent;
+    border: none;
+}
+
+:host ::ng-deep .panel .panel-default .panel-heading.card-header {
+    padding: 3px 10px;
+    font-size: 15px;
+    font-weight: bolder;
+    line-height: 8px;
+    border-radius: 10px !important;
+    border: none;
+}
+
+:host ::ng-deep .panel .panel-default .panel-heading.card-header.panel-disabled {
+    opacity: 0.5;
+}
+
+:host ::ng-deep .panel .panel-default .panel-body {
+    padding: 0 !important;
+    padding-top: 5px !important;
+}
+
+:host ::ng-deep .panel .panel-default .panel-body .checkbox-panel-list .list-group-item {
+    border: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+    margin: 0px;
+}
+
+:host ::ng-deep .panel .panel-default .panel-body .checkbox-panel-list .list-group-item:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+:host ::ng-deep .panel .panel-default .panel-body .checkbox-panel-list .list-group-item:first-child label {
+    cursor: pointer;
+    color: #9d9d9d;
+}
+
+:host ::ng-deep .panel .panel-default .panel-body .checkbox-panel-list .list-group-item:last-child {
+    border-bottom: none !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 20px;
+}
+
+::ng-deep .compare-modal-window {
+    margin-top: 68px;
+    background: #2b2926;
+}
+
+/*  ________________________________    */

@@ -297,7 +297,10 @@ export class MaterialListComponent implements OnInit {
         if (this.materialsToCompare.length !== 3) {
             return;
         }
-        const modalRef = this.modalService.open(McompareModalComponent);
+        const modalRef = this.modalService.open(McompareModalComponent, {
+            backdrop: false,
+            windowClass: 'compare-modal-window'
+        });
         modalRef.componentInstance.dashboardData = this.dashboardData;
         modalRef.componentInstance.selectedMaterials = this.materialsToCompare;
     }

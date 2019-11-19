@@ -56,8 +56,7 @@
                         <!--Body-->
                         <ul class="list-group checkbox-panel-list">
                             <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;">
-                                <label class="float-left m-0"
-                                       (click)="selectAllTestMethod()">{{ isTestMethodSelectAll ? 'Un-select All' : 'Select All'}}</label>
+                                <label class="float-left m-0" (click)="selectAllTestMethod()">{{ isTestMethodSelectAll ? 'Un-select All' : 'Select All'}}</label>
                             </li>
                             <li class="list-group-item font-weight-bolder" style="background-color: #f0f1f2!important;"
                                 *ngFor="let test of testMethods | filterTest: 'TestMethod': {preferredTests: preferredTests}">
