@@ -25,7 +25,7 @@
     "bootstrap": "^4.3.1",
     "file-saver": "^2.0.2",
     "jquery": "^3.4.1",
-    "jszip": "^3.2.2",
+    "jszip": "^3.8.0",
     "jszip-utils": "^0.1.0",
     "ng2-scroll-to-el": "^1.2.1",
     "ng2-search-filter": "^0.5.1",
